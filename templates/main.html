@@ -1,0 +1,80 @@
+<html>
+	<head>
+          	<meta charset="UTF-8">
+     	        <title>SHRIMP API</title>
+	<style>
+		body {
+    background-color:powderblue;
+    background-size: cover;
+   
+			}
+		h1 {
+    text-align: center;
+    color: black;
+    font-size: 300%;
+    
+			}
+		form {
+    text-align: center;
+}
+		button {
+    font-weight: bold;
+    background-color: lightgray;
+    padding: 5px 16px;
+    display: inline-block;
+    text-decoration: none;
+    border-radius:3px;
+    color: black;
+    border-color: black;
+    font-family: Arial;
+    border-style: ridge;
+}
+		input {
+    padding: 8px 30px;
+    margin: 3px;
+}
+		.pred {
+    text-align:center;
+}
+		.result {
+    font-weight: normal;
+    background-color: rosybrown;
+    padding: 8px 10px;
+    display: inline-block;
+    color:black;
+    border-color:red;
+    font-family:Times New Roman;
+}
+	</style>
+	</head>
+	<body>
+		 <div class = "title">
+           		 <h1>Shrimp Body Weight Predictor</h1>
+       		 </div>
+		 
+    		<form action="{{ url_for('predict')}}"method="post">
+                    <input type="text" name="DOC" placeholder="Days of Culture (1 to 100)" required="required" />
+                    <br>
+                    
+                    <input type="text" name="Salinity (ppt)" placeholder="Salinity (ppt)" required="required" />
+                    <br>
+                    
+                    <input type="text" name="Average PH" placeholder="Average pH" required="required" />
+                    <br>
+                    
+                    <input type="text" name="Average DO (ppm)" placeholder="Average DO (ppm)" required="required" />
+                    <br>
+                    <input type="text" name="TSS (ml/L)" placeholder="Total Suspended Solids (ml/L)" required="required" />
+                    <br>
+                    <input type="text" name="TDF (kg)" placeholder="Total daly feed Feed (kg)" required="required" />
+                    <br>
+                    <br>
+                    <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+                </form>
+                <br>
+                <br>
+		<div class = "pred">
+			<p class= "result"><em>Average Shrimp Body Weight is<strong>{{ prediction_text }}</strong>grams</em></p>
+		</div>
+	</body>
+</html>
